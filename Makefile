@@ -1,5 +1,5 @@
 build:
-	docker image build -t 2tunnels/debugkit:latest .
+	docker buildx build --platform=linux/amd64,linux/arm64 --tag=2tunnels/debugkit:latest .
 
 push:
-	docker image push 2tunnels/debugkit:latest
+	docker buildx build --platform=linux/amd64,linux/arm64 --tag=2tunnels/debugkit:latest --push .
