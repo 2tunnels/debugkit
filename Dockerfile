@@ -1,14 +1,12 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 RUN apt-get update -y && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         curl \
         dnsutils \
-        httpie \
         iputils-ping \
+        jq \
         postgresql-client \
         procps \
         && \
     rm -rf /var/lib/apt/lists/*
-
-RUN echo 'alias die="http POST http://127.0.0.1:15000/quitquitquit ; exit"' >> ~/.bashrc

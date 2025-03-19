@@ -3,22 +3,20 @@
 Running inside k8s cluser:
 
 ```sh
-$ kubectl run -it --rm debugkit --image=2tunnels/debugkit --restart=Never
+kubectl run -it --rm debugkit --image=2tunnels/debugkit --restart=Never --image-pull-policy=Always
 ```
 
 Or standalone container:
 
 ```sh
-$ docker container run --rm -it 2tunnels/debugkit bash
+docker container run --rm -it 2tunnels/debugkit bash
 ```
 
 ## Installed software
 
 - curl
 - dnsutils
-- httpie
 - iputils-ping
+- jq
 - postgresql-client
 - procps
-
-Run `die` to kill Istio sidecar and exit container.
